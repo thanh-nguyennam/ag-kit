@@ -9,8 +9,7 @@ artifact_outputs: coordination-plan, phase-status
 
 # /coordinate — Advanced Multi-Agent Coordination
 
-$ARGUMENTS
-
+> **Context / Target:** [User-supplied request or scope]
 ---
 
 ## 🔴 CRITICAL RULES
@@ -28,7 +27,7 @@ Use the `orchestrator` agent with this context:
 
 ```
 CONTEXT:
-- User Request: $ARGUMENTS
+- User Request: [User Request / Scope]
 - Mode: COORDINATOR (advanced orchestration)
 - Skill: Load coordinator-mode skill for patterns
 

@@ -9,8 +9,7 @@ artifact_outputs: discovery-notes, decision-summary
 
 # /brainstorm - Structured Idea Exploration
 
-$ARGUMENTS
-
+> **Context / Target:** [User-supplied request or scope]
 ---
 
 ## Purpose

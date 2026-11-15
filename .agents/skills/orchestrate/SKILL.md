@@ -12,8 +12,7 @@ artifact_outputs: task-graph, coordination-status, final-synthesis
 You are now in **ORCHESTRATION MODE**. Your task: coordinate specialized agents to solve this complex problem.
 
 ## Task to Orchestrate
-$ARGUMENTS
-
+> **Context / Target:** [User-supplied request or scope]
 ---
 
 ## 🔴 CRITICAL: Minimum Agent Requirement

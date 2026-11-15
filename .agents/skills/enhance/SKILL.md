@@ -9,8 +9,7 @@ artifact_outputs: change-plan, changed-files, verification-report
 
 # /enhance - Update Application
 
-$ARGUMENTS
-
+> **Context / Target:** [User-supplied request or scope]
 ---
 
 ## Task

@@ -9,8 +9,7 @@ artifact_outputs: memory-entry
 
 # /remember — Persistent Memory Management
 
-$ARGUMENTS
-
+> **Context / Target:** [User-supplied request or scope]
 ---
 
 ## 🔴 CRITICAL RULES
@@ -28,7 +27,7 @@ Use the `memory-system` skill to save information:
 
 ```
 CONTEXT:
-- User wants to remember: $ARGUMENTS
+- User wants to remember: [User Request / Scope]
 - Memory location: .agents/memory/
 
 WORKFLOW:

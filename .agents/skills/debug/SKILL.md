@@ -9,8 +9,7 @@ artifact_outputs: root-cause, fix-summary, verification-report
 
 # /debug - Systematic Problem Investigation
 
-$ARGUMENTS
-
+> **Context / Target:** [User-supplied request or scope]
 ---
 
 ## Purpose

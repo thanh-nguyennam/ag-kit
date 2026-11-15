@@ -9,8 +9,7 @@ artifact_outputs: implementation-plan, changed-files, verification-report
 
 # /create - Create Application
 
-$ARGUMENTS
-
+> **Context / Target:** [User-supplied request or scope]
 ---
 
 ## Task

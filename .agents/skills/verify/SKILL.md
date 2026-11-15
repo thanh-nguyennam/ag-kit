@@ -9,8 +9,7 @@ artifact_outputs: verification-report
 
 # /verify — Prove Code Works
 
-$ARGUMENTS
-
+> **Context / Target:** [User-supplied request or scope]
 ---
 
 ## 🔴 CRITICAL RULES
@@ -28,7 +27,7 @@ Use the `verify-changes` skill to prove code works:
 
 ```
 CONTEXT:
-- What to verify: $ARGUMENTS
+- What to verify: [User Request / Scope]
 - If empty: verify the most recent code changes in this session
 
 WORKFLOW:

@@ -9,8 +9,7 @@ artifact_outputs: deployment-plan, deployment-report, rollback-plan
 
 # /deploy - Production Deployment
 
-$ARGUMENTS
-
+> **Context / Target:** [User-supplied request or scope]
 ---
 
 ## Purpose

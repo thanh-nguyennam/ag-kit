@@ -9,8 +9,7 @@ artifact_outputs: implementation-plan
 
 # /plan - Project Planning Mode
 
-$ARGUMENTS
-
+> **Context / Target:** [User-supplied request or scope]
 ---
 
 ## 🔴 CRITICAL RULES
@@ -28,7 +27,7 @@ Use the `project-planner` agent with this context:
 
 ```
 CONTEXT:
-- User Request: $ARGUMENTS
+- User Request: [User Request / Scope]
 - Mode: PLANNING ONLY (no code)
 - Output: {task-slug}.md in project root (dynamic naming)
 

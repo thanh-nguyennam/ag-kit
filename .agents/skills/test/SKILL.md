@@ -9,8 +9,7 @@ artifact_outputs: test-report
 
 # /test - Test Generation and Execution
 
-$ARGUMENTS
-
+> **Context / Target:** [User-supplied request or scope]
 ---
 
 ## Purpose

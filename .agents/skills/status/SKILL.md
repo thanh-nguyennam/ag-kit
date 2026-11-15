@@ -9,8 +9,7 @@ artifact_outputs: status-report
 
 # /status - Show Status
 
-$ARGUMENTS
-
+> **Context / Target:** [User-supplied request or scope]
 ---
 
 ## Task
