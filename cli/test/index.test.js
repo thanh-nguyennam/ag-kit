@@ -26,7 +26,16 @@ test("CLI runs when invoked through an npm bin symlink", async (t) => {
     const binDir = path.join(dir, ".bin");
     await mkdir(binDir);
     const link = path.join(binDir, "ag-kit");
-    await symlink(path.resolve("bin/index.js"), link);
+
+    try {
+        await symlink(path.resolve("bin/index.js"), link, process.platform === "win32" ? "file" : undefined);
+    } catch (err) {
+        if (process.platform === "win32" && (err.code === "EPERM" || err.code === "EACCES")) {
+            t.skip("Windows non-elevated symlink creation requires SeCreateSymbolicLinkPrivilege");
+            return;
+        }
+        throw err;
+    }
 
     const { stdout } = await run(process.execPath, [link, "--version"]);
     assert.match(stdout.trim(), /^\d{4}\.\d+\.\d+$/);

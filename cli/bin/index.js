@@ -22,7 +22,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const pkg = await fse.readJson(path.join(__dirname, "..", "package.json"));
 
-const REPO = "github:vudovn/ag-kit";
+const REPO = process.env.AG_KIT_REPO || "github:thanh-nguyennam/ag-kit";
 const AGENT_FOLDER = ".agents";
 const TEMP_FOLDER = ".temp_ag_kit";
 
@@ -342,12 +342,26 @@ export const statusCommand = async (options) => {
         const stats = await fse.stat(agentDir);
         const manifest = await loadManifest(agentDir);
         const backups = await listBackups(targetDir);
+
+        let managedLabel = manifest ? chalk.green("yes") : chalk.yellow("legacy/no manifest");
+        let kitVersion = manifest?.toolkitVersion;
+
+        // Fallback for active source repository
+        const sourceVersionFile = path.join(agentDir, "VERSION");
+        if (!manifest && await fse.pathExists(sourceVersionFile)) {
+            const versionContent = (await fse.readFile(sourceVersionFile, "utf8")).trim();
+            if (versionContent) {
+                managedLabel = chalk.green("source tree");
+                kitVersion = `${versionContent} (Antigravity 2.0 Ready)`;
+            }
+        }
+
         console.log(chalk.green("[OK] Installed"));
         console.log(chalk.gray("────────────────────────────────────────"));
         console.log(`Path:        ${chalk.cyan(agentDir)}`);
         console.log(`Modified:    ${chalk.gray(stats.mtime.toLocaleString("en-US"))}`);
-        console.log(`Managed:     ${manifest ? chalk.green("yes") : chalk.yellow("legacy/no manifest")}`);
-        console.log(`Kit version: ${chalk.cyan(manifest?.toolkitVersion || "unknown")}`);
+        console.log(`Managed:     ${managedLabel}`);
+        console.log(`Kit version: ${chalk.cyan(kitVersion || "unknown")}`);
         console.log(`Backups:     ${chalk.yellow(backups.length)}`);
         console.log(chalk.gray("────────────────────────────────────────\n"));
     } else {
