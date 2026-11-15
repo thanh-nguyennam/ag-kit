@@ -13,7 +13,7 @@ Include only sanitized information:
 - affected AG Kit, CLI, web, and `.agents` versions;
 - Antigravity build/channel and operating system;
 - Node.js and Python versions;
-- affected hook, MCP server, plugin file, agent, skill, workflow, CLI command, CI job, or deployment path;
+- affected hook, MCP server, plugin file, agent, skill, CLI command, CI job, or deployment path;
 - minimal reproduction steps with credentials and private data removed;
 - expected impact, observed behavior, and known mitigations.
 

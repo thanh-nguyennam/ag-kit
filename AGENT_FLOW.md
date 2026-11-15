@@ -13,9 +13,8 @@ User request
     ↓
 Antigravity workspace discovery
     ├── .agents/rules/       persistent constraints
-    ├── .agents/skills/      progressive domain context
-    ├── .agents/workflows/   slash-command procedures
-    ├── .agents/agent/       specialist role definitions
+    ├── .agents/skills/      progressive domain context & slash-command procedures
+    ├── .agents/agent/       specialist role definitions (Antigravity 2.0 tools)
     └── .agents/memory/      durable project context
     ↓
 Routing and orchestration
@@ -28,7 +27,7 @@ Tool boundary
     └── .agents/hooks.json → PreToolUse safety gate
     ↓
 Execution, validation, evidence, and result delivery
-    ├── /agents and /tasks are runtime state
+    ├── /agents, subagents, and native swarms are runtime state
     ├── toolkit validators and project tests are evidence
     └── memory is updated only for durable accepted information
 ```
@@ -37,7 +36,7 @@ Execution, validation, evidence, and result delivery
 
 | Phase | Responsibility | Source of truth |
 | --- | --- | --- |
-| 1. Discovery | Load rules, skills, and workflows | `.agents/rules/`, `.agents/skills/`, `.agents/workflows/` |
+| 1. Discovery | Load rules and skills (with native slash command execution) | `.agents/rules/`, `.agents/skills/` |
 | 2. MCP | Validate workspace servers and explicitly sync reviewed config | `.agents/mcp_config.json` |
 | 3. Hooks | Gate high-confidence destructive command patterns | `.agents/hooks.json` and `.agents/hooks/validate-tool-call.mjs` |
 | 4. Orchestration | Coordinate specialist roles without creating a second scheduler | workflows, agent definitions, Antigravity `/agents` and `/tasks` |
@@ -654,7 +653,7 @@ User Request: "Build a Next.js dashboard with authentication"
 - **Architecture**: `.agents/ARCHITECTURE.md`
 - **Agents**: `.agents/agent/`
 - **Skills**: `.agents/skills/`
-- **Workflows**: `.agents/workflows/`
+- **Skills**: `.agents/skills/` (60 domain skills & slash commands)
 - **Scripts**: `.agents/scripts/`
 
 ---

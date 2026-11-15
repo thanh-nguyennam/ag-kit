@@ -2,6 +2,15 @@
 
 This guide covers upgrades across AG Kit releases, including the Antigravity-native runtime layer and subsequent feature releases up to `2026.8.31`.
 
+## Migrating to Antigravity 2.0 (`2026.11`+)
+
+### What changes in Antigravity 2.0
+- **Workflow Deprecation**: Antigravity 2.0 deprecates static `.agents/workflows/*.md`. All 13 workflows have been upgraded to modern `.agents/skills/<name>/SKILL.md` format, unlocking native `/<name>` chat autocomplete, progressive context disclosure, and semantic discovery.
+- **Agent Runtime Tools**: All 20 specialist agents now declare standard Antigravity runtime tools (`read_file`, `edit_file`, `write_file`, `run_command`, `invoke_subagent`, `swarm`).
+- **Cross-Platform Hook & Doctor Fixes**: Enhanced CRLF and Windows path resolution across `.agents/hooks/`.
+
+---
+
 ## Upgrading to `2026.8.31`
 
 ### What changes in `2026.8.31`

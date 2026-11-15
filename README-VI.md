@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/vudovn/ag-kit/main/web/public/images/logo.png" width="128" height="128" alt="AG Kit">
+  <img src="https://raw.githubusercontent.com/thanh-nguyennam/ag-kit/main/web/public/images/logo.png" width="128" height="128" alt="AG Kit">
 </p>
 
 <h1 align="center">AG KIT</h1>
 
 <p align="center">
-  Bộ công cụ kỹ nghệ AI Agent ưu tiên Antigravity, gồm rules, skills, agent chuyên môn, workflows, bộ nhớ dài hạn, hướng dẫn MCP, điều phối và native safety hook.
+  Bộ công cụ kỹ nghệ AI Agent ưu tiên Antigravity, gồm rules, 60 skills (kèm native slash commands đã migrate), agent chuyên môn, bộ nhớ dài hạn, hướng dẫn MCP, điều phối và native safety hook cho Antigravity 2.0.
 </p>
 
 <div align="center">
@@ -27,10 +27,10 @@ AG Kit cài một workspace contract hoàn chỉnh trong `.agents/`. Antigravity
 
 | Năng lực | Cách triển khai production |
 | --- | --- |
-| Khám phá rules và skills | `.agents/rules/`, `.agents/skills/`, `.agents/workflows/` |
-| Điều hướng chuyên gia | 20 agent chuyên môn và intelligent-routing skills |
+| Khám phá rules và skills | `.agents/rules/`, `.agents/skills/` (hỗ trợ native `/<name>` slash commands) |
+| Điều hướng chuyên gia | 20 agent chuyên môn chuẩn Antigravity 2.0 tools và intelligent-routing skills |
 | Ngữ cảnh dài hạn | `.agents/memory/` và hướng dẫn context compression |
-| Điều phối | `/coordinate`, `/orchestrate`, `/agents` và `/tasks` của Antigravity |
+| Điều phối | `/coordinate`, `/orchestrate`, `/agents`, subagents và native swarms của Antigravity |
 | MCP | Cấu hình workspace cùng công cụ đồng bộ có review và backup |
 | An toàn tool | Native `PreToolUse` gate cho các lệnh phá hủy có độ chắc chắn cao |
 | Đóng gói | Plugin bundle cục bộ kèm inventory SHA-256 |
@@ -62,7 +62,7 @@ npm install -g @vudovn/ag-kit
 ag-kit init
 ```
 
-Không thêm `.agents/` vào `.gitignore` khi cần Antigravity index rules, skills và workflows. Để giữ thư mục này ở local mà không tắt discovery, thêm `.agents/` vào `.git/info/exclude`.
+Không thêm `.agents/` vào `.gitignore` khi cần Antigravity index rules và skills. Để giữ thư mục này ở local mà không tắt discovery, thêm `.agents/` vào `.git/info/exclude`.
 
 ### Kiểm tra workspace
 

@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/vudovn/ag-kit/main/web/public/images/logo.png" width="128" height="128" alt="AG Kit">
+  <img src="https://raw.githubusercontent.com/thanh-nguyennam/ag-kit/main/web/public/images/logo.png" width="128" height="128" alt="AG Kit">
 </p>
 
 <h1 align="center">AG KIT</h1>
 
 <p align="center">
-  Antigravity-first agent engineering kit with rules, skills, specialist agents, workflows, persistent memory, MCP guidance, orchestration, and a native safety hook.
+  Antigravity-first agent engineering kit with rules, 60 on-demand skills (including migrated slash commands), specialist agents, persistent memory, MCP guidance, orchestration, and native safety hooks for Antigravity 2.0.
 </p>
 
 <div align="center">
@@ -27,10 +27,10 @@ AG Kit installs a complete `.agents/` workspace contract. Antigravity is the sup
 
 | Capability | Production implementation |
 | --- | --- |
-| Rules and skill discovery | `.agents/rules/`, `.agents/skills/`, `.agents/workflows/` |
-| Specialist routing | 20 role definitions and intelligent-routing skills |
+| Rules and skill discovery | `.agents/rules/`, `.agents/skills/` (with native `/<name>` slash commands) |
+| Specialist routing | 20 role definitions with Antigravity 2.0 runtime tools and intelligent routing |
 | Persistent context | `.agents/memory/` and context-compression guidance |
-| Orchestration | `/coordinate`, `/orchestrate`, Antigravity `/agents` and `/tasks` |
+| Orchestration | `/coordinate`, `/orchestrate`, Antigravity `/agents`, subagents, and native swarms |
 | MCP | Workspace config plus explicit, backup-aware sync helper |
 | Tool safety | Native `PreToolUse` gate for high-confidence destructive commands |
 | Packaging | Local Antigravity plugin bundle with a SHA-256 content inventory |
@@ -62,7 +62,7 @@ npm install -g @vudovn/ag-kit
 ag-kit init
 ```
 
-Do not add `.agents/` to the project `.gitignore` when Antigravity needs to index rules, skills, or workflows. To keep it local without disabling discovery, add `.agents/` to `.git/info/exclude` instead.
+Do not add `.agents/` to the project `.gitignore` when Antigravity needs to index rules and skills. To keep it local without disabling discovery, add `.agents/` to `.git/info/exclude` instead.
 
 ### Verify the workspace
 
