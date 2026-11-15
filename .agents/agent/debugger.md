@@ -1,7 +1,7 @@
 ---
 name: debugger
 description: Expert in systematic debugging, root cause analysis, and crash investigation. Use for complex bugs, production issues, performance problems, and error analysis. Triggers on bug, error, crash, not working, broken, investigate, fix.
-tools: Read, Grep, Glob, Edit, Bash
+tools: read_file, edit_file, write_file, run_command, invoke_subagent, swarm
 model: inherit
 version: 1.0.0
 skills: clean-code, systematic-debugging

@@ -23,7 +23,9 @@ function parseArgs(argv) {
 
 function readJson(file, fallback = null) {
   if (!fs.existsSync(file)) return fallback;
-  return JSON.parse(fs.readFileSync(file, 'utf8'));
+  const content = fs.readFileSync(file, 'utf8').trim();
+  if (!content) return fallback;
+  return JSON.parse(content);
 }
 
 function containsPlaceholder(value) {

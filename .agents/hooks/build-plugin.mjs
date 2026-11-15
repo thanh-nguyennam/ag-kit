@@ -32,10 +32,10 @@ function copyTree(source, destination) {
 }
 
 function frontmatterDescription(text) {
-  if (!text.startsWith('---\n')) return '';
-  const end = text.indexOf('\n---\n', 4);
-  if (end < 0) return '';
-  const line = text.slice(4, end).split(/\r?\n/).find(item => item.startsWith('description:'));
+  if (!text.startsWith('---\n') && !text.startsWith('---\r\n')) return '';
+  const match = text.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
+  if (!match) return '';
+  const line = match[1].split(/\r?\n/).find(item => item.startsWith('description:'));
   return line ? line.slice('description:'.length).trim().replace(/^['"]|['"]$/g, '') : '';
 }
 
@@ -52,9 +52,13 @@ function convertWorkflows(root, output) {
   const destination = path.join(output, 'commands', 'ag-kit');
   fs.mkdirSync(destination, {recursive: true});
   let count = 0;
-  for (const name of fs.readdirSync(source).filter(item => item.endsWith('.md')).sort()) {
+  if (!fs.existsSync(source)) return count;
+  const files = fs.readdirSync(source)
+    .filter(item => item.endsWith('.md') || item.endsWith('.md.bak'))
+    .sort();
+  for (const name of files) {
     const text = fs.readFileSync(path.join(source, name), 'utf8');
-    const commandName = name.replace(/\.md$/, '');
+    const commandName = name.replace(/\.md(\.bak)?$/, '');
     const description = frontmatterDescription(text) || `Run AG Kit workflow ${commandName}`;
     const prompt = `${text}\n\nUser arguments: {{args}}`;
     fs.writeFileSync(

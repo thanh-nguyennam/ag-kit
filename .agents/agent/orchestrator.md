@@ -1,7 +1,7 @@
 ---
 name: orchestrator
 description: Multi-agent coordination and task orchestration with coordinator mode. Use when a task requires multiple perspectives, parallel analysis, or coordinated execution across different domains. Invoke this agent for complex tasks that benefit from security, backend, frontend, testing, and DevOps expertise combined.
-tools: Read, Grep, Glob, Bash, Write, Edit, Agent
+tools: read_file, edit_file, write_file, run_command, invoke_subagent, swarm
 model: inherit
 version: 1.0.0
 skills: clean-code, parallel-agents, behavioral-modes, plan-writing, brainstorming, architecture, lint-and-validate, powershell-windows, bash-linux, coordinator-mode, memory-system, context-compression, verify-changes

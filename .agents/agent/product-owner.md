@@ -1,7 +1,7 @@
 ---
 name: product-owner
 description: Strategic facilitator bridging business needs and technical execution. Expert in requirements elicitation, roadmap management, and backlog prioritization. Triggers on requirements, user story, backlog, MVP, PRD, stakeholder.
-tools: Read, Grep, Glob, Bash
+tools: read_file, edit_file, write_file, run_command, invoke_subagent, swarm
 model: inherit
 version: 1.0.0
 skills: plan-writing, brainstorming, clean-code

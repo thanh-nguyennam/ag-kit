@@ -23,14 +23,14 @@ function readJson(file) {
 
 function frontmatter(file) {
   const text = fs.readFileSync(file, 'utf8');
-  if (!text.startsWith('---\n')) return null;
-  const end = text.indexOf('\n---\n', 4);
-  if (end < 0) return null;
+  if (!text.startsWith('---\n') && !text.startsWith('---\r\n')) return null;
+  const match = text.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
+  if (!match) return null;
   const data = {};
-  for (const line of text.slice(4, end).split(/\r?\n/)) {
-    const match = line.match(/^([A-Za-z0-9_-]+):\s*(.*)$/);
-    if (!match) continue;
-    data[match[1]] = match[2].trim().replace(/^['"]|['"]$/g, '');
+  for (const line of match[1].split(/\r?\n/)) {
+    const fieldMatch = line.match(/^([A-Za-z0-9_-]+):\s*(.*)$/);
+    if (!fieldMatch) continue;
+    data[fieldMatch[1]] = fieldMatch[2].trim().replace(/^['"]|['"]$/g, '');
   }
   return data;
 }
@@ -62,9 +62,19 @@ function relative(root, file) {
 
 function checkDiscovery(root, report) {
   const agentsRoot = path.join(root, '.agents');
+  const workflowsFiles = markdownFiles(path.join(agentsRoot, 'workflows'));
+  const backupFiles = fs.existsSync(path.join(agentsRoot, 'workflows'))
+    ? fs.readdirSync(path.join(agentsRoot, 'workflows'))
+        .filter(name => name.endsWith('.md.bak'))
+        .map(name => path.join(agentsRoot, 'workflows', name))
+        .sort()
+    : [];
+
+  const discoveredWorkflows = workflowsFiles.length > 0 ? workflowsFiles : backupFiles;
+
   const groups = [
     ['rules', markdownFiles(path.join(agentsRoot, 'rules')), ['trigger']],
-    ['workflows', markdownFiles(path.join(agentsRoot, 'workflows')), ['description']],
+    ['workflows', discoveredWorkflows, ['description']],
     ['skills', skillFiles(path.join(agentsRoot, 'skills')), ['description']]
   ];
 
@@ -172,7 +182,10 @@ function checkHooks(root, report) {
 function checkOrchestration(root, report, contract) {
   const cfg = contract?.phases?.orchestration ?? {};
   const groups = [
-    ['workflow', cfg.workflows ?? [], name => path.join(root, '.agents', 'workflows', `${name}.md`)],
+    ['workflow', cfg.workflows ?? [], name => {
+      const p1 = path.join(root, '.agents', 'workflows', `${name}.md`);
+      return fs.existsSync(p1) ? p1 : path.join(root, '.agents', 'workflows', `${name}.md.bak`);
+    }],
     ['agent', cfg.agents ?? [], name => path.join(root, '.agents', 'agent', `${name}.md`)],
     ['skill', cfg.skills ?? [], name => path.join(root, '.agents', 'skills', name, 'SKILL.md')]
   ];
