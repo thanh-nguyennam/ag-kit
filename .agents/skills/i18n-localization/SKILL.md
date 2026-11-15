@@ -2,7 +2,7 @@
 name: i18n-localization
 description: Internationalization and localization patterns. Detecting hardcoded strings, managing translations, locale files, RTL support.
 when_to_use: "When internationalizing an app, managing translations, detecting hardcoded strings, or adding RTL support."
-allowed-tools: Read, Glob, Grep
+allowed-tools: read_file
 version: 1.0.0
 ---
 

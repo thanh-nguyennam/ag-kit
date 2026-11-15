@@ -2,7 +2,7 @@
 name: skillify
 description: Auto-create new skills from repetitive workflows. When you notice yourself doing the same multi-step process repeatedly, extract it into a reusable SKILL.md that any agent can use.
 when_to_use: "When the user says 'make this a skill', 'create a skill for this', 'I keep doing this same thing', or when a repetitive multi-step pattern is observed. NOT for one-off tasks."
-allowed-tools: Read, Write, Glob, Grep
+allowed-tools: read_file, write_file
 version: 1.0.0
 effort: low
 ---
@@ -45,7 +45,7 @@ Use this template:
 name: [kebab-case-name]
 description: [One sentence describing what this skill does]
 when_to_use: "[When the user asks X, works with Y files, or Z domain. NOT for A.]"
-allowed-tools: [Read, Write, Edit, Grep, Glob, Bash — only what's needed]
+allowed-tools: read_file, write_file
 effort: [low | medium | high]
 ---
 

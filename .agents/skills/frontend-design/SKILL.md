@@ -2,7 +2,7 @@
 name: frontend-design
 description: Anti-slop frontend design for web UI — landing pages, portfolios, marketing/product sites, and redesigns. Reads the brief, infers the right direction, and ships interfaces that don't look templated. Real design systems when applicable, audit-first on redesigns, strict pre-flight check. NOT for mobile apps.
 when_to_use: "When designing or building web UI — components, layouts, color, typography, landing pages, or redesigns. NOT for mobile apps (use mobile-design)."
-allowed-tools: Read, Write, Edit, Glob, Grep, Bash
+allowed-tools: read_file, write_file, edit_file, run_command
 version: 1.0.0
 ---
 

@@ -2,7 +2,7 @@
 name: mcp-builder
 description: MCP (Model Context Protocol) server and client engineering. Protocol design, schemas, transports, extensions, security, and migration.
 when_to_use: "When building or reviewing MCP servers or clients, designing MCP tools/resources/prompts, migrating protocol versions, or validating MCP security and interoperability."
-allowed-tools: Read, Write, Edit, Glob, Grep
+allowed-tools: read_file, write_file, edit_file
 version: 1.0.0
 ---
 

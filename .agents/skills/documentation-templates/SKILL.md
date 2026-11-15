@@ -2,7 +2,7 @@
 name: documentation-templates
 description: Documentation templates and structure guidelines. README, API docs, code comments, and AI-friendly documentation.
 when_to_use: "When writing README files, API documentation, code comments, or generating AI-friendly documentation."
-allowed-tools: Read, Glob, Grep
+allowed-tools: read_file
 version: 1.0.0
 ---
 

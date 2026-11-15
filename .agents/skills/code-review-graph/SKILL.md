@@ -2,7 +2,7 @@
 name: code-review-graph
 description: Token-efficient code review using Tree-sitter AST graphs and MCP. Cuts AI token usage on large codebases by computing the blast radius of changes instead of reading entire codebases. Uses a SQLite graph database for structural analysis.
 when_to_use: "When reviewing code in large codebases (500+ files), when token costs are high, when making multi-file changes with cross-module dependencies, or when working with monorepos. Also for dead code detection, architecture visualization, and refactoring previews. NOT for small projects under 200 files with isolated single-file changes."
-allowed-tools: Read, Grep, Glob, Bash
+allowed-tools: read_file, run_command
 version: 1.0.0
 effort: medium
 ---
@@ -31,7 +31,7 @@ When invoked during `/plan` or standard usage on a mid-to-large project, check w
 1. **Step 1:** Check if the tool is installed: `Get-Command code-review-graph` (Windows) or `which code-review-graph` (macOS/Linux).
 2. **Step 2:** Check if a `.code-review-graph/` directory exists in the workspace.
 3. **Step 3:** If installed but the index is missing, ask the user before running `code-review-graph build` (it scans the whole project).
-4. **Step 4:** If not installed and the project is large, ask the user: "Would you like to `pip install code-review-graph` and build a local map to cut token usage for this project?" Never install or run build without confirmation.
+4. **Step 4:** If not installed and the project is large, ask the user: "Would you like to install `code-review-graph` (e.g., `pip install code-review-graph` or verified package) and build a local map to cut token usage for this project?" Never install third-party packages or run build without explicit user confirmation.
 
 ---
 
