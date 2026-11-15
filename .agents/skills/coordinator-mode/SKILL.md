@@ -2,7 +2,7 @@
 name: coordinator-mode
 description: Advanced multi-agent orchestration with parallel workers, synthesis protocols, and coordinator lifecycle. Use when complex tasks require multiple agents working in parallel with intelligent result synthesis.
 when_to_use: "When the user needs multi-agent coordination, parallel task execution, complex multi-domain work, or when /coordinate or /orchestrate is invoked. NOT for single-domain tasks."
-allowed-tools: read_file, run_command, write_file, edit_file, Agent
+allowed-tools: read_file, run_command, write_file, edit_file, invoke_subagent, swarm
 version: 1.0.0
 effort: high
 ---
