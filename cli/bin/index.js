@@ -56,6 +56,18 @@ const cleanup = async (tempDir) => {
     if (tempDir) await fse.remove(tempDir);
 };
 
+const compareCalVer = (v1, v2) => {
+    const p1 = String(v1).split(".").map(Number);
+    const p2 = String(v2).split(".").map(Number);
+    for (let i = 0; i < Math.max(p1.length, p2.length); i++) {
+        const num1 = p1[i] || 0;
+        const num2 = p2[i] || 0;
+        if (num1 > num2) return 1;
+        if (num1 < num2) return -1;
+    }
+    return 0;
+};
+
 const checkUpdate = async (quiet = false) => {
     if (quiet) return null;
     try {
@@ -67,7 +79,7 @@ const checkUpdate = async (quiet = false) => {
         clearTimeout(timeoutId);
         if (!response.ok) return null;
         const data = await response.json();
-        return data.version && data.version !== pkg.version ? data.version : null;
+        return data.version && compareCalVer(data.version, pkg.version) > 0 ? data.version : null;
     } catch {
         return null;
     }

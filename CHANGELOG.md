@@ -5,15 +5,16 @@ All notable changes to AG Kit will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/).
 Starting with `2026.5.13`, this project uses calendar versioning in `YYYY.M.D` format.
 
-## [Unreleased]
+## [2026.11.16] - 2026-11-16
 
 ### Changed
 - **Migrated to Antigravity 2.0 runtime architecture**:
   - Converted all 13 legacy static workflows (`.agents/workflows/*.md`) into modern `.agents/skills/<name>/SKILL.md` format supporting native Slash Commands (`/<name>`), semantic auto-trigger, and progressive disclosure. Legacy files safely archived with `.md.bak`.
-  - Updated all 20 specialist agents (`.agents/agent/*.md`) to declare Antigravity 2.0 native tool capabilities: `read_file`, `edit_file`, `write_file`, `run_command`, `invoke_subagent`, `swarm`.
+  - Updated all 20 specialist agents (`.agents/agent/*.md`) and 60 skills to declare Antigravity 2.0 native tool capabilities: `read_file`, `edit_file`, `write_file`, `run_command`, `invoke_subagent`, `swarm`.
   - Enhanced Doctor, Plugin Builder, and Hook scripts (`antigravity-doctor.mjs`, `build-plugin.mjs`, `validate-tool-call.mjs`, `sync-mcp.mjs`) for cross-platform compatibility (Windows CRLF, file URLs, and fallback JSON).
+  - Advanced toolkit version to `2026.11.16` across all packages, locks, manifest, and CLI.
+  - Upgraded CLI status command to detect active source repositories automatically.
   - Synchronized documentation (`README.md`, `README-VI.md`, `AGENT_FLOW.md`, `MIGRATION.md`, `SECURITY.md`) with Antigravity 2.0 standards.
-
 
 ## [2026.8.31] - 2026-08-31
 
